@@ -4,7 +4,6 @@ metadata:
   name: webapp-deployment
   labels: 
     app: web
-  namespace: production
 spec:
   replicas: 2
   strategy: 
@@ -25,7 +24,7 @@ spec:
       - name: webapp-red
         image: mmumshad/simple-webapp-color
         ports:
-          containerPort: 8080
+        - containerPort: 8080
         env: 
         - name: APP_COLOR
           value: red
