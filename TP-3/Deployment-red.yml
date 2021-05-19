@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Deployment
+metadata: 
+  name: webapp-deployment
+  labels: 
+    app: web
+  namespace: production
+spec:
+  replicas: 2
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector: 
+    matchLabels: 
+      app: web
+  template:
+    metadata:
+      name: pod-webapp-red
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: webapp-red
+        image: mmumshad/simple-webapp-color
+        ports:
+          containerPort: 8080
+        env: 
+        - name: APP_COLOR
+          value: red
