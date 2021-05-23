@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webapp-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: sadofrazer-webapp.com
+      http:
+        paths:
+          - path: /blue
+            pathType: Prefix
+            backend:
+              service:
+                name: webapp-service
+                port:
+                  number: 8081
+          - path: /red
+            pathType: Prefix
+            backend:
+              service:
+                name: webapp-service-red
+                port:
+                  number: 8081
