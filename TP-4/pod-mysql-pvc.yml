@@ -25,6 +25,7 @@ spec:
         name: mysql-data
     #creation du volume        
   volumes:
-    - name: mysql-data
-      persistentVolumeClaim:
+   - name: mysql-data
+     persistentVolumeClaim:
       claimName: mypvc
+      
