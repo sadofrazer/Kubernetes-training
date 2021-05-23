@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql-pod
+  labels:
+    name: mysql
+spec:
+  containers:
+    - name: mysql-volume
+      image: mysql
+      ports:
+      - containerPort: 8080
+      env: 
+      - name: MYSQL_DATABASE
+        value: mysql-db
+      - name: MYSQL_USER
+        value: frazer
+      - name: MYSQL_PASSWORD
+        value: frazer
+      - name: MYSQL_ROOT_PASSWORD
+        value: password
+  #lien du volume à utiliser pour cet hote
+      volumeMounts:
+      - mountPath: /var/lib/mysql
+        name: mysql-data
+    #creation du volume        
+  volumes:
+    - name: mysql-data
+      persistentVolumeClaim:
+      claimName: mypvc

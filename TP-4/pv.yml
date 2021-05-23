@@ -3,11 +3,10 @@ kind: PersistentVolume
 metadata:
   name: mypv
 spec:
+  storageClassName: manual
   capacity:
     storage: 1Gi
-  volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
-  nfs:
-    path: /tmp
-    server: 172.17.0.2
+  hostPath:
+    path: "/data-pv"
