@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: mysql-deployment
+  labels: 
+    app: mysql
+spec:
+  replicas: 2
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector: 
+    matchLabels: 
+      app: mysql
+  template:
+    metadata:
+      name: mysql-volume
+      labels:
+        app: mysql
+    spec:
+      containers:
+       - name: mysql-volume
+         image: mysql
+         ports:
+          - containerPort: 8080
+         env: 
+          - name: MYSQL_DATABASE
+            value: test-db
+          - name: MYSQL_USER
+            value: frazer
+          - name: MYSQL_PASSWORD
+            value: frazer
+          - name: MYSQL_ROOT_PASSWORD
+            value: password
+  #lien du volume à utiliser pour cet hote
+         volumeMounts:
+          - mountPath: /var/lib/mysql
+            name: data_volume
+    #creation du volume        
+      volumes:
+        - name: data_volume
+          hostPath:
+            path: /data
+            type: directory
