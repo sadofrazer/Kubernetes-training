@@ -49,8 +49,8 @@ spec:
             value: Frazer's BLOG    
           - name: WORDPRESS_SITE_URL
             value: http://34.204.198.220:30008
-          - name: WORDPRESS_SKIP_BOOTSTRAP
-            value: 'yes'             
+          # - name: WORDPRESS_SKIP_BOOTSTRAP
+          #   value: 'yes'             
   #lien du volume à utiliser pour cet hote
          volumeMounts:
           - mountPath: /var/www/html
