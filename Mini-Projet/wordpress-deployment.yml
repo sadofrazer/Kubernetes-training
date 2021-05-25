@@ -34,6 +34,19 @@ spec:
             value: frazer
           - name: WORDPRESS_DB_NAME
             value: wordpress-db
+  #Ajout des variables propres à Wordpress
+          - name: WORDPRESS_USERNAME
+            value: frazer
+          - name: WORDPRESS_PASSWORD
+            value: frazer
+          - name: WORDPRESS_EMAIL
+            value: sadofrazer@yahoo.fr
+          - name: WORDPRESS_FIRST_NAME
+            value: Frazer
+          - name: WORDPRESS_LAST_NAME
+            value: SADO
+          - name: WORDPRESS_BLOG_NAME
+            value: Frazer's BLOG          
   #lien du volume à utiliser pour cet hote
          volumeMounts:
           - mountPath: /var/www/html
