@@ -38,7 +38,7 @@ spec:
           - name: WORDPRESS_USERNAME
             value: frazer
           - name: WORDPRESS_PASSWORD
-            value: frazer
+            value: PAFF20021es!
           - name: WORDPRESS_EMAIL
             value: sadofrazer@yahoo.fr
           - name: WORDPRESS_FIRST_NAME
@@ -46,7 +46,11 @@ spec:
           - name: WORDPRESS_LAST_NAME
             value: SADO
           - name: WORDPRESS_BLOG_NAME
-            value: Frazer's BLOG          
+            value: Frazer's BLOG    
+          - name: WORDPRESS_SITE_URL
+            value: http://34.204.198.220:30008
+          - name: WORDPRESS_SKIP_BOOTSTRAP
+            value: 'yes'             
   #lien du volume à utiliser pour cet hote
          volumeMounts:
           - mountPath: /var/www/html
