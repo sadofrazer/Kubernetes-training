@@ -12,6 +12,7 @@ spec:
           - path: /
             pathType: Prefix
             backend:
-              serviceName: wordpress-svc
-              servicePort: 8081 
-                
+              service:
+                name: wordpress-svc
+                port:
+                  number: 8081
