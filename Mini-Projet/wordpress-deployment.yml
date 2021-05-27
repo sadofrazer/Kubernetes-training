@@ -29,28 +29,17 @@ spec:
           - name: WORDPRESS_DB_HOST
             value: mysql-svc:8085
           - name: WORDPRESS_DB_USER
-            value: frazer
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: mysql_user
           - name: WORDPRESS_DB_PASSWORD
-            value: frazer
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: mysql_pwd
           - name: WORDPRESS_DB_NAME
             value: wordpress-db
-  #Ajout des variables propres à Wordpress
-          # - name: WORDPRESS_USERNAME
-          #   value: frazer
-          # - name: WORDPRESS_PASSWORD
-          #   value: PAFF20021es!
-          # - name: WORDPRESS_EMAIL
-          #   value: sadofrazer@yahoo.fr
-          # - name: WORDPRESS_FIRST_NAME
-          #   value: Frazer
-          # - name: WORDPRESS_LAST_NAME
-          #   value: SADO
-          # - name: WORDPRESS_BLOG_NAME
-          #   value: Frazer's BLOG    
-          # - name: WORDPRESS_SITE_URL
-          #   value: http://34.204.198.220:30008
-          # - name: WORDPRESS_SKIP_BOOTSTRAP
-          #   value: 'yes'             
   #lien du volume à utiliser pour cet hote
          volumeMounts:
           - mountPath: /var/www/html
