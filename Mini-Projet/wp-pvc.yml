@@ -11,5 +11,5 @@ spec:
     requests:
       storage: 1Gi
   storageClassName: gp2-retain
-  volumeMode: Filesystem
-  volumeName: wp-pv
+  # volumeMode: Filesystem
+  # volumeName: wp-pv
