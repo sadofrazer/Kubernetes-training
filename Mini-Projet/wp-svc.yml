@@ -21,7 +21,20 @@ spec:
   ports:
    - protocol: TCP
      targetPort: 80
-     port: 80
+     port: 8081
      nodePort: 30008
+  selector:
+    app: wordpress
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wp-lb-svc
+spec:
+  type: LoadBalancer
+  ports:
+   - protocol: TCP
+     targetPort: 80
+     port: 80
   selector:
     app: wordpress

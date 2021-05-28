@@ -13,6 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: wordpress-svc
+                name: wp-lb-svc
                 port:
                   number: 80
