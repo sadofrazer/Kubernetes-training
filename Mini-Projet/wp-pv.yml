@@ -7,7 +7,7 @@ spec:
   - ReadWriteOnce
   awsElasticBlockStore:
     fsType: xfs
-    volumeID: aws://us-east-1a/vol-033565da48c013530
+    volumeID: aws://us-east-1d/vol-033565da48c013530
   capacity:
     storage: 1Gi
   persistentVolumeReclaimPolicy: Retain
