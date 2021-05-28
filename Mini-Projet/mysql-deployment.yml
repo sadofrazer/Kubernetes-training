@@ -48,4 +48,4 @@ spec:
       volumes:
         - name: db-volume
           persistentVolumeClaim:
-            claimName: wp-pv
+            claimName: wp-pvc
