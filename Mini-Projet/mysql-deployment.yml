@@ -47,6 +47,5 @@ spec:
 #creation du volume        
       volumes:
         - name: db-volume
-          hostPath:
-            path: /db-data
-            type: Directory
+          persistentVolumeClaim:
+          claimName: wp-pv
